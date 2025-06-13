@@ -1,0 +1,47 @@
+/* stylelint-disable selector-pseudo-class-no-unknown */
+.video {
+  aspect-ratio: 16/9;
+
+  &.disable {
+    pointer-events: none;
+    user-select: none;
+  }
+
+  :global(.react-player__preview) {
+    position: relative;
+    isolation: isolate;
+
+    &:hover,
+    &:focus-visible {
+      &::before {
+        opacity: 0.2;
+      }
+
+      svg {
+        transform: scale(1.1);
+      }
+    }
+
+    &::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: '';
+      background: var(--black);
+      opacity: 0.4;
+      transition: opacity 250ms ease-in-out;
+    }
+  }
+
+  svg {
+    transition: transform 250ms ease-in-out;
+
+    @media (width >= 1024px) {
+      font-size: 124px;
+    }
+
+    @media (width <= 1023.98px) {
+      font-size: 62px;
+    }
+  }
+}

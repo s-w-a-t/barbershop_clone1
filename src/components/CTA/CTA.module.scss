@@ -1,0 +1,53 @@
+.cta {
+  display: grid;
+
+  @media (width >= 1200px) {
+    grid-template-columns: repeat(2, minmax(auto, 580px));
+    grid-gap: 60px 80px;
+    place-content: start space-between;
+  }
+
+  @media (width <= 1199.98px) {
+    row-gap: 24px;
+  }
+
+  &_title {
+    @media (width >= 1200px) {
+      grid-row: span 2;
+    }
+
+    @media (width <= 1199.98px) {
+      text-align: left;
+    }
+
+    @media (width <= 739.98px) {
+      font-size: 32px;
+    }
+  }
+
+  &_descr {
+    @media (width <= 1199.98px) {
+      justify-self: end;
+      max-width: 628px;
+      padding-left: 16px;
+    }
+  }
+
+  &_btn {
+    @media (width >= 1200px) {
+      justify-self: end;
+    }
+
+    @media (width <= 1199.98px) {
+      justify-self: center;
+    }
+
+    @media (width >= 740px) and (width <= 1199.98px) {
+      margin-top: 36px;
+    }
+
+    @media (width <= 739.98px) {
+      margin-top: 8px;
+    }
+  }
+}

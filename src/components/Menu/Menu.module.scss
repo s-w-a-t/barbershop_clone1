@@ -1,0 +1,68 @@
+.menu {
+  $this: &;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: -8px;
+
+  &.header {
+    @media (width <= 1199.98px) {
+      flex-flow: column nowrap;
+      overflow: auto;
+    }
+
+    @media (width >= 740px) and (width <= 1199.98px) {
+      gap: 32px;
+    }
+
+    @media (width <= 739.98px) {
+      gap: 16px;
+    }
+
+    #{$this}_link {
+      @media (width <= 1199.98px) {
+        font-family: var(--font-montserrat);
+        line-height: 1.22;
+        white-space: normal;
+      }
+
+      @media (width >= 740px) and (width <= 1199.98px) {
+        font-size: 50px;
+      }
+
+      @media (width <= 739.98px) {
+        font-size: 36px;
+      }
+    }
+  }
+
+  &.footer {
+    justify-content: center;
+
+    @media (width <= 739.98px) {
+      gap: 8px 16px;
+      margin-top: 8px;
+    }
+
+    #{$this}_link {
+      @media (width <= 739.98px) {
+        font-size: 12px;
+        line-height: 1.25;
+      }
+    }
+  }
+
+  &_link {
+    display: block;
+    padding: 8px;
+    font-size: 18px;
+    line-height: 1.222;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--red);
+    }
+  }
+}

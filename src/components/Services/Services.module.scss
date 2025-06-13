@@ -1,0 +1,204 @@
+.services {
+  $this: &;
+
+  &_list {
+    @media (width >= 1200px) {
+      padding-top: 48px;
+      margin-top: 32px;
+    }
+
+    @media (width <= 1199.98px) {
+      margin-top: 24px;
+    }
+  }
+
+  &_item {
+    display: grid;
+    background-color: var(--black);
+    border-bottom: solid 1px;
+
+    @media (width >= 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      padding-top: 23px;
+      padding-bottom: 23px;
+    }
+
+    @media (width <= 1199.98px) {
+      overflow: hidden;
+    }
+
+    &:first-child {
+      border-top: solid 1px;
+
+      #{$this}_price_item {
+        &::before {
+          @media (width >= 1200px) {
+            position: absolute;
+            bottom: calc(100% + 40px);
+            display: block;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.292;
+            color: var(--gray-dark);
+            text-align: center;
+          }
+
+          @media (width <= 1199.98px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &:not(:first-child) {
+      #{$this}_price_item {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &_name {
+    color: var(--white);
+    text-align: left;
+
+    @media (width >= 1200px) {
+      padding-inline: 40px;
+      font-size: 30px;
+      line-height: 1.3;
+    }
+
+    @media (width <= 1199.98px) {
+      font-weight: 600;
+    }
+
+    @media (width >= 740px) and (width <= 1199.98px) {
+      padding: 23px 16px;
+      font-size: 24px;
+      line-height: 1.5;
+    }
+
+    @media (width <= 739.98px) {
+      padding: 15px 8px;
+      font-size: 17px;
+      line-height: 1.53;
+    }
+  }
+
+  &_price {
+    display: flex;
+    justify-content: space-between;
+
+    @media (width >= 1200px) {
+      column-gap: 40px;
+      font-size: 28px;
+      line-height: 1.286;
+    }
+
+    @media (width <= 1199.98px) {
+      flex-direction: column;
+      row-gap: 16px;
+    }
+
+    @media (width >= 740px) and (width <= 1199.98px) {
+      font-size: 22px;
+      line-height: 1.182;
+    }
+
+    @media (width <= 739.98px) {
+      font-size: 14px;
+      line-height: 1.214;
+    }
+
+    &[data-state='open'] {
+      animation: slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    &[data-state='closed'] {
+      animation: slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    &_item {
+      position: relative;
+      display: grid;
+
+      @media (width >= 1200px) {
+        place-items: center;
+        min-width: 104px;
+      }
+
+      @media (width <= 1199.98px) {
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: space-between;
+        border: solid 1px;
+      }
+
+      @media (width >= 740px) and (width <= 1199.98px) {
+        padding: 23px 15px;
+      }
+
+      @media (width <= 739.98px) {
+        padding: 11px 7px;
+      }
+
+      &:last-child {
+        @media (width <= 1199.98px) {
+          margin-bottom: 23px;
+        }
+      }
+
+      &::before,
+      &::after {
+        content: attr(data-label);
+      }
+
+      &::after {
+        @media (width >= 1200px) {
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 1.292;
+          opacity: 0;
+        }
+
+        @media (width <= 1199.98px) {
+          order: -1;
+          color: var(--light);
+        }
+      }
+    }
+
+    &_value {
+      @media (width >= 1200px) {
+        position: absolute;
+        white-space: nowrap;
+      }
+
+      @media (width <= 1199.98px) {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@keyframes slide-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}

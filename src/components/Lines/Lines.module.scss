@@ -1,0 +1,32 @@
+.lines {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  pointer-events: none;
+  border-right: solid 1px rgba(217, 217, 217, 70%);
+  border-left: solid 1px rgba(217, 217, 217, 70%);
+  transform: translateX(-50%);
+
+  @media (width >= 1200px) {
+    width: 752px;
+
+    &::after {
+      position: absolute;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+      content: '';
+      background: rgba(217, 217, 217, 70%);
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (width >= 740px) and (width <= 1199.98px) {
+    width: calc(100% - 360px);
+  }
+
+  @media (width <= 739.98px) {
+    width: calc(100% - 154px);
+  }
+}

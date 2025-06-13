@@ -1,0 +1,154 @@
+.header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  display: grid;
+  column-gap: 32px;
+  align-items: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  @media (width >= 1200px) {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  @media (width <= 1199.98px) {
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+
+  @media (width <= 739.98px) {
+    padding-inline: 24px;
+  }
+
+  &_nav {
+    @media (width >= 1200px) {
+      justify-self: center;
+    }
+
+    @media (width <= 1199.98px) {
+      position: absolute;
+      inset: 0;
+      z-index: 11;
+      display: grid;
+      grid-gap: 60px;
+      grid-gap: clamp(
+        40px,
+        calc(40px + (60 - 40) * ((100vh - 667px) / 145)),
+        60px
+      );
+      align-content: center;
+      height: 100vh;
+      height: 100dvh;
+      padding-top: 134px;
+      visibility: hidden;
+      background: var(--black);
+      opacity: 0;
+      transition-timing-function: ease-in-out;
+      transition-duration: 250ms;
+      transition-property: transform, opacity, visibility;
+      transform: translate3d(0, -20px, 0);
+
+      &.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @media (width >= 740px) and (width <= 1199.98px) {
+      padding-inline: 100px;
+      padding-bottom: 60px;
+    }
+
+    @media (width <= 739.98px) {
+      padding-inline: 16px;
+      padding-bottom: 16px;
+    }
+  }
+
+  &_btn {
+    &.desktop {
+      width: 172px;
+
+      @media (width <= 1199.98px) {
+        display: none;
+      }
+    }
+
+    &.mobile {
+      justify-self: center;
+      width: min(100%, 414px);
+
+      @media (width >= 1200px) {
+        display: none;
+      }
+    }
+  }
+
+  &_hamb {
+    $hamb: &;
+
+    --padding: 4px;
+
+    position: relative;
+    z-index: 12;
+    display: flex;
+    align-items: center;
+    width: 56px;
+    height: 42px;
+    padding: var(--padding);
+
+    @media (width >= 1200px) {
+      display: none;
+    }
+
+    &_icon {
+      top: 10px;
+      left: 5px;
+      width: calc(100% - 2 * var(--padding));
+
+      &,
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        height: 2px;
+        content: '';
+        background: var(--white);
+        border-radius: 2px;
+        transition: all 250ms ease-in-out;
+      }
+
+      &::before,
+      &::after {
+        width: 100%;
+      }
+
+      &::before {
+        top: 10px;
+      }
+
+      &::after {
+        top: 20px;
+      }
+    }
+
+    &.active {
+      #{$hamb}_icon {
+        top: 20px;
+        transform: rotate(45deg);
+
+        &::before {
+          top: 0;
+          opacity: 0;
+        }
+
+        &::after {
+          top: 0;
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+}

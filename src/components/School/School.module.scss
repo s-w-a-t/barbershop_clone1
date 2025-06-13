@@ -1,0 +1,158 @@
+/* stylelint-disable selector-pseudo-class-no-unknown */
+.school {
+  display: grid;
+
+  @media (width >= 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 32px;
+  }
+
+  @media (width <= 1199.98px) {
+    row-gap: 24px;
+  }
+
+  &_descr {
+    justify-self: end;
+    max-width: 580px;
+  }
+
+  &_media {
+    @media (width >= 740px) {
+      position: relative;
+    }
+
+    @media (width >= 1200px) {
+      grid-column: span 2;
+    }
+
+    @media (width <= 1199.98px) {
+      width: calc(100% + 2 * var(--container-padding));
+      margin-inline: calc(-1 * var(--container-padding));
+    }
+
+    @media (width >= 740px) and (width <= 1199.98px) {
+      margin-top: 8px;
+    }
+
+    @media (width <= 739.98px) {
+      display: grid;
+      row-gap: 32px;
+      justify-items: center;
+    }
+  }
+
+  &_btn {
+    @media (width >= 740px) {
+      position: absolute;
+      bottom: 24px;
+      transition: all 250ms ease-in-out;
+    }
+
+    @media (width >= 1200px) {
+      left: 24px;
+    }
+
+    @media (width >= 740px) and (width <= 1199.98px) {
+      left: 32px;
+    }
+
+    @media (width <= 739.98px) {
+      max-width: calc(100% - 2 * var(--container-padding));
+
+      &:global(.btn) {
+        color: var(--red);
+
+        &:hover,
+        &:focus-visible {
+          color: var(--black);
+          background: var(--red);
+          border-color: var(--red);
+        }
+      }
+    }
+
+    &.hidden {
+      @media (width >= 740px) {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+
+    &.active {
+      @media (width >= 740px) {
+        transform: translateY(-24px);
+      }
+    }
+  }
+
+  &_gallery {
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: center;
+
+    @media (width >= 740px) {
+      row-gap: 20px;
+      padding-block: 60px;
+    }
+
+    @media (width >= 1024px) {
+      grid-template-columns: repeat(3, minmax(160px, 324px));
+    }
+
+    @media (width >= 1200px) {
+      column-gap: 60px;
+    }
+
+    @media (width >= 740px) and (width <= 1199.98px) {
+      column-gap: 32px;
+    }
+
+    @media (width <= 1023.98px) {
+      grid-template-columns: repeat(2, minmax(160px, 324px));
+    }
+
+    @media (width <= 739.98px) {
+      grid-gap: 16px;
+      padding-block: 24px;
+    }
+  }
+
+  &_ill {
+    position: relative;
+
+    @media (width >= 740px) {
+      height: 216px;
+    }
+
+    @media (width <= 739.98px) {
+      height: 108px;
+    }
+
+    &:nth-child(3n + 2),
+    &:nth-child(6n + 4) {
+      @media (width >= 1024px) {
+        grid-row: span 2;
+        height: 452px;
+      }
+    }
+
+    &:nth-child(4n + 3),
+    &:nth-child(4n + 2) {
+      @media (width <= 1023.98px) {
+        grid-row: span 2;
+      }
+
+      @media (width >= 740px) and (width <= 1023.98px) {
+        height: 452px;
+      }
+
+      @media (width <= 739.98px) {
+        height: 232px;
+      }
+    }
+  }
+
+  &_pic {
+    object-fit: cover;
+  }
+}

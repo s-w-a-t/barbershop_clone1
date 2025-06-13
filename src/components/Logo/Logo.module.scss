@@ -1,0 +1,16 @@
+.logo {
+  position: relative;
+  z-index: 13;
+
+  &.header {
+    @media (width <= 1199.98px) {
+      width: 52px;
+    }
+  }
+
+  &.footer {
+    @media (width <= 739.98px) {
+      width: 52px;
+    }
+  }
+}

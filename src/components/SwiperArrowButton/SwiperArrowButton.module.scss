@@ -1,0 +1,21 @@
+/* stylelint-disable scss/operator-no-newline-after */
+.btn {
+  width: var(--swiper-navigation-size);
+  font-size: var(--swiper-navigation-size);
+
+  &.prev {
+    transform: scaleX(-1);
+  }
+
+  &.pagination {
+    margin-top: calc(
+      (var(--swiper-pagination-bottom) - var(--swiper-pagination-bullet-size)) /
+        2
+    );
+  }
+
+  &.hidden,
+  &::after {
+    display: none;
+  }
+}
