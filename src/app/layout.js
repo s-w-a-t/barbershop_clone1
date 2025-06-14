@@ -1,4 +1,5 @@
 import React from 'react'
+import Script from 'next/script'
 import './globals.scss'
 import { Montserrat, Rubik } from 'next/font/google'
 import clsx from 'clsx'
