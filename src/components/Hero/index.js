@@ -16,7 +16,22 @@ import ArrowRight from '@/assets/icons/arrow-right.svg'
 import Lines from '../Lines'
 import s from './Hero.module.scss'
 
-const Hero = ({ orderLabel, orderLink, title, label, pics }) => {
+const BtnPhone = ({callLabel, callPhone, className }) => (
+  <a
+    href={`tel:${callPhone}`}
+    className={clsx('btn btn_sec-outline', s.header_btn, className)}
+    style={{
+      backgroundColor: '#E9E4D0',
+      color: '#354332', 
+      // borderColor: '#D60107',
+      width: '100%',
+    }}
+  >
+    {callLabel}
+  </a>
+)
+
+const Hero = ({ orderLabel, orderLink, callLabel, callPhone, title, label, pics }) => {
   const containerRef = useRef(null)
 
   const thumbs = pics.slice(1).concat(pics[0])
@@ -128,6 +143,7 @@ const Hero = ({ orderLabel, orderLink, title, label, pics }) => {
           ))}
         </Swiper>
 
+      
         <a
           href={orderLink}
           target="_blank"
@@ -136,8 +152,15 @@ const Hero = ({ orderLabel, orderLink, title, label, pics }) => {
         >
           {orderLabel}
         </a>
-
+      
         <div id="swiper-pagination-hero" className={s.hero_pagination} />
+        <div className={s.hero_cta_wrapper}>
+          <BtnPhone
+            callLabel={callLabel}
+            callPhone={callPhone}
+            className={s.mobile}
+          />
+        </div>
       </div>
 
       <Lines className={s.hero_lines} />
