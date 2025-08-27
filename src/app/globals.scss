@@ -6,12 +6,16 @@
 
 :root {
   --white: #fff;
+  --white-cream: #E9E4D0;
   --black: #000;
   --red: #e52922;
+  --green-light: #354332;
   --gray: #575757;
   --gray-light: #b6b6b6;
   --gray-dark: #393939;
   --light: #dedede;
+  --brown: #574337
+  --brown-light: #E9CEB2
   --swiper-theme-color: var(--white);
   --swiper-navigation-sides-offset: 0;
   --swiper-navigation-size: 34px;
@@ -228,14 +232,15 @@ section {
   }
 
   &--primary {
-    color: #E9E4D0;
-    background-color: #354332;
+    color: var(--white-cream);
+    background-color: var(--green-light);
 
 
     &:hover,
     &:focus-visible {
-      background-color: var(--red);
-      border-color: var(--red);
+      color: var(--green-light);
+      background-color: var(--white-cream);
+      border-color: var(--green-light);
     }
   }
 
@@ -245,6 +250,19 @@ section {
     &:hover,
     &:focus-visible {
       background-color: var(--white);
+      border-color: var(--white);
+    }
+  }
+
+  &--third {
+    color: var(--green-light);
+    border-color: var(--green-light);
+    background-color: var(--white-cream);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--brown-light);
+      background-color: var(--brown);
       border-color: var(--white);
     }
   }
