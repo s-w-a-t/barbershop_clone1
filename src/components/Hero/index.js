@@ -21,9 +21,6 @@ const BtnPhone = ({callLabel, callPhone, className }) => (
     href={`tel:${callPhone}`}
     className={clsx('btn btn--third', s.header_btn, className)}
     style={{
-      backgroundColor: '#E9E4D0',
-      color: '#354332', 
-      // borderColor: '#D60107',
       width: '100%',
     }}
   >
