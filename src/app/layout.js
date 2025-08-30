@@ -25,7 +25,7 @@ const montserrat = Montserrat({
 export const metadata = {
   title: 'Oldskull Барбершоп',
   description:
-    'Brutal barbershop - Oldskull Барбершоп | Професійні Чоловічі Стрижки | Гоління Бороди | Ужгород',
+    'Oldskull Барбершоп | Професійні Чоловічі Стрижки | Гоління Бороди | Ужгород',
 }
 
 const GLOBAL_QUERY = `
