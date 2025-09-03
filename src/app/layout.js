@@ -26,6 +26,9 @@ export const metadata = {
   title: 'Oldskull Барбершоп',
   description:
     'Oldskull Барбершоп | Професійні Чоловічі Стрижки | Гоління Бороди | Ужгород',
+  alternates: {
+    canonical: 'https://oldskullbarbershop.com',
+  },
 }
 
 const GLOBAL_QUERY = `
